@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Ivan Li</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=Instrument+Serif&display=swap" rel="stylesheet"/>
+  <style>
+    :root{
+      --bg:#f7f6f3;--s:#fff;--tx:#0f0f0f;--tx2:#4a4a4a;--tx3:#8a8a8a;
+      --bd:#ddd8d0;--bdl:#eae6df;--warm:#f0ece5;
+      --dk:#0f0f0f;--dktx:#f7f6f3;--dktx2:rgba(247,246,243,.58);
+      --blue:#2d6bc4;--blue-l:#e8f0fc;
+      --green:#2d8a4e;--green-l:#e6f4ec;
+      --se:'Instrument Serif',Georgia,serif;
+      --sa:'DM Sans',system-ui,sans-serif;
+      --mx:1040px;--tr:.35s cubic-bezier(.4,0,.2,1);
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scroll-padding-top:60px}
+    body{font-family:var(--sa);color:var(--tx);background:var(--bg);font-size:15.5px;line-height:1.65;-webkit-font-smoothing:antialiased}
+    a{color:inherit;text-decoration:none}img{display:block;max-width:100%}
+    .w{max-width:var(--mx);margin:0 auto;padding:0 24px}
+    nav{position:sticky;top:0;z-index:50;background:rgba(247,246,243,.88);backdrop-filter:blur(24px);border-bottom:1px solid var(--bd)}
+    .ni{display:flex;align-items:center;justify-content:space-between;height:56px}
+    .logo{font-family:var(--se);font-size:22px}
+    .nr{display:flex;gap:1px}
+    .nr a{font-size:12px;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--tx3);padding:8px 14px;border-radius:99px;transition:all var(--tr)}
+    .nr a:hover,.nr a.on{color:var(--tx);background:var(--warm)}
+    @media(max-width:640px){.nr a{font-size:10.5px;padding:6px 8px;letter-spacing:.3px}}
+    .sec{padding:64px 0}.sec+.sec{border-top:1px solid var(--bd)}
+    .lb{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--tx3);margin-bottom:8px}
+    h1{font-family:var(--se);font-size:clamp(34px,4.5vw,54px);font-weight:400;line-height:1.08;letter-spacing:-.5px;margin-bottom:16px}
+    h2{font-family:var(--se);font-size:clamp(22px,2.6vw,28px);font-weight:400;letter-spacing:-.2px;margin-bottom:8px}
+    h3{font-size:11px;font-weight:700;letter-spacing:2.2px;text-transform:uppercase;color:var(--tx3);margin-bottom:6px}
+    .sub{font-size:17px;color:var(--tx2);max-width:56ch;line-height:1.72}
+    .g2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    @media(max-width:760px){.g2,.g3,.g4{grid-template-columns:1fr}}
+    .c{background:var(--s);border:1px solid var(--bd);padding:26px;border-radius:4px;transition:box-shadow var(--tr),transform var(--tr)}
+    .c:hover{box-shadow:0 8px 30px rgba(0,0,0,.06);transform:translateY(-2px)}
+    .c-dk{background:var(--dk);color:var(--dktx);border:none;padding:30px;border-radius:4px}
+    .c-dk h2,.c-dk h3{color:var(--dktx)}.c-dk p{color:var(--dktx2);font-size:15.5px;line-height:1.7}
+    .hero{display:grid;grid-template-columns:1fr 270px;gap:44px;align-items:start}
+    @media(max-width:760px){.hero{grid-template-columns:1fr;gap:20px}}
+    .av{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 20%;border:1px solid var(--bd);border-radius:4px;transition:filter var(--tr)}
+    .av:hover{filter:brightness(1.03)}
+    .tags{display:flex;flex-wrap:wrap;gap:6px}
+    .tag{font-size:11.5px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;padding:5px 11px;border:1px solid var(--bd);color:var(--tx2);background:var(--warm);border-radius:2px;transition:all var(--tr);cursor:default}
+    .tag:hover{background:var(--tx);color:var(--bg);border-color:var(--tx)}
+    .stat-card{padding:18px;border:1px solid var(--bd);border-radius:4px;background:var(--s);transition:all var(--tr);cursor:default}
+    .stat-card:hover{background:var(--dk);color:var(--dktx);border-color:var(--dk)}
+    .stat-card:hover .sl{color:var(--dktx2)}
+    .sn{font-family:var(--se);font-size:30px;line-height:1}
+    .sl{font-size:12.5px;color:var(--tx3);margin-top:4px;transition:color var(--tr)}
+    hr{border:none;border-top:1px solid var(--bd);margin:24px 0}
+    .tb{width:100%;border-collapse:collapse}
+    .tb th{text-align:left;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--tx3);padding:8px 10px;border-bottom:1.5px solid var(--tx)}
+    .tb td{padding:10px;font-size:14px;color:var(--tx2);border-bottom:1px solid var(--bdl);transition:background var(--tr)}
+    .tb tr:hover td{background:var(--warm)}
+    .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+    @media(max-width:600px){.gal{grid-template-columns:1fr}}
+    .gal figure{margin:0;border:1px solid var(--bd);border-radius:4px;overflow:hidden;background:var(--s);transition:box-shadow var(--tr),transform var(--tr)}
+    .gal figure:hover{box-shadow:0 8px 30px rgba(0,0,0,.06);transform:translateY(-2px)}
+    .gal figure img{width:100%;height:320px;object-fit:cover;transition:transform .5s ease}
+    .gal figure:hover img{transform:scale(1.03)}
+    .gal figcaption{padding:14px 16px;font-size:13.5px;color:var(--tx2);border-top:1px solid var(--bdl);line-height:1.6}
+    .gal figcaption strong{color:var(--tx)}
+    .vp{border:1px solid var(--bd);border-radius:4px;overflow:hidden;background:var(--dk);display:flex;align-items:center;justify-content:center;min-height:220px;padding:28px;transition:box-shadow var(--tr)}
+    .vp:hover{box-shadow:0 8px 30px rgba(0,0,0,.12)}
+    .vp img{max-height:140px;width:auto;transition:transform .4s ease}
+    .vp:hover img{transform:scale(1.06)}
+    .sdg{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:4px 9px;border:1px solid var(--bd);background:var(--s);border-radius:2px;letter-spacing:.2px;transition:all var(--tr);cursor:default}
+    .sdg:hover{background:var(--warm)}
+    .sd{width:7px;height:7px;border-radius:99px;flex-shrink:0}
+    .sdg-full{display:flex;align-items:center;gap:12px;padding:13px 16px;border:1px solid var(--bd);border-radius:4px;background:var(--s);transition:all var(--tr);cursor:default}
+    .sdg-full:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,0,0,.05)}
+    .sdg-num{font-family:var(--se);font-size:26px;line-height:1;width:36px;text-align:center;flex-shrink:0}
+    .sdg-title{font-size:14px;font-weight:600;color:var(--tx)}
+    .sdg-bar{width:4px;height:34px;border-radius:2px;flex-shrink:0}
+    .cta-btn{display:inline-flex;align-items:center;gap:8px;font-size:15px;font-weight:500;padding:13px 26px;border:1px solid var(--bd);border-radius:4px;background:var(--s);transition:all var(--tr);cursor:pointer}
+    .cta-btn:hover{background:var(--dk);color:var(--dktx);border-color:var(--dk)}
+    .cta-btn svg{width:18px;height:18px;fill:currentColor}
+    .prog-hero{text-align:center;padding-bottom:8px}
+    .prog-hero h1{margin-bottom:10px}
+    .prog-hero .sub{margin:0 auto}
+    .prog-divider{display:flex;align-items:center;gap:16px;margin:40px 0 28px}
+    .prog-divider .pd-line{flex:1;height:1px;background:var(--bd)}
+    .prog-divider .pd-name{font-family:var(--se);font-size:26px}
+    .flow{display:flex;gap:0;align-items:stretch;margin:16px 0}
+    .flow-step{flex:1;text-align:center;padding:16px 10px;background:var(--s);border:1px solid var(--bd);border-radius:4px;transition:all var(--tr)}
+    .flow-step:hover{background:var(--warm);transform:translateY(-2px)}
+    .flow-step .fs-num{font-family:var(--se);font-size:24px;color:var(--tx3);margin-bottom:4px}
+    .flow-step .fs-title{font-size:13px;font-weight:700;margin-bottom:3px}
+    .flow-step .fs-desc{font-size:12px;color:var(--tx3);line-height:1.4}
+    .flow-arrow{display:flex;align-items:center;padding:0 5px;color:var(--bd);font-size:20px}
+    @media(max-width:760px){.flow{flex-direction:column;gap:8px}.flow-arrow{justify-content:center;transform:rotate(90deg)}}
+    .cmp{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--bd);border-radius:4px;overflow:hidden}
+    @media(max-width:600px){.cmp{grid-template-columns:1fr}}
+    .cmp-col{padding:22px}
+    .cmp-col:first-child{border-right:1px solid var(--bd)}
+    @media(max-width:600px){.cmp-col:first-child{border-right:none;border-bottom:1px solid var(--bd)}}
+    .cmp-row{display:flex;align-items:flex-start;gap:10px;padding:9px 0;border-bottom:1px solid var(--bdl);font-size:14px;color:var(--tx2)}
+    .cmp-row:last-child{border-bottom:none}
+    .cmp-icon{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:700;color:#fff;margin-top:1px}
+    .svc-ring{display:flex;flex-direction:column;align-items:center;gap:6px;padding:20px 0}
+    .svc-layer{display:flex;align-items:center;justify-content:center;border-radius:99px;font-size:13px;font-weight:600;transition:all var(--tr);cursor:default}
+    .svc-layer:hover{transform:scale(1.04)}
+    .ss{border:1px solid var(--bd);border-radius:4px;overflow:hidden;background:#eeecea}
+    .ss img{width:100%;display:block}
+    .circ{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
+    footer{border-top:1px solid var(--bd);padding:20px 0 26px;font-size:12px;color:var(--tx3)}
+    .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+    .rv.vis{opacity:1;transform:translateY(0)}
+    .rv-d1{transition-delay:.08s}.rv-d2{transition-delay:.16s}.rv-d3{transition-delay:.24s}
+  </style>
+</head>
+<body>
+
+<nav><div class="w ni">
+  <div class="logo">Ivan Li</div>
+  <div class="nr">
+    <a href="#about" class="on">About</a>
+    <a href="#ventures">Ventures</a>
+    <a href="#programs">Programs</a>
+    <a href="#global">Global</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div></nav>
+
+<main class="w">
+
+<!-- ABOUT -->
+<section class="sec" id="about">
+  <div class="hero">
+    <div>
+      <p class="lb rv">About</p>
+      <h1 class="rv rv-d1">Observe. Question.<br/>Build what matters.</h1>
+      <p class="sub rv rv-d2">I've always been drawn to paying attention — to the small things in a community that don't quite work, the gaps that are easy to walk past. Over time, that curiosity became a habit: noticing a problem, sitting with it, and when an idea forms, not letting it stay in my head. Instead, making it real — step by step.</p>
+      <p class="sub rv rv-d2" style="margin-top:10px">That's how sugar-free workshops for underserved communities started. Then an education program helping students tackle real problems with AI. Then fermentation research to make fruit juice healthier. And most recently, a voice-AI companion for elderly people living alone. None of it was a grand strategy — each one grew from asking "what if this could actually exist?"</p>
+      <div class="tags rv rv-d3" style="margin:22px 0 0">
+        <span class="tag">Social Innovation</span>
+        <span class="tag">Food Technology</span>
+        <span class="tag">Voice AI &amp; IoT</span>
+        <span class="tag">AI Education</span>
+        <span class="tag">Market Research</span>
+        <span class="tag">ESG</span>
+      </div>
+      <hr/>
+      <div class="g4 rv rv-d3">
+        <div class="stat-card"><div class="sn">170+</div><div class="sl">Participants served</div></div>
+        <div class="stat-card"><div class="sn">6</div><div class="sl">NGO partners</div></div>
+        <div class="stat-card"><div class="sn">HK$100K</div><div class="sl">Funding secured</div></div>
+        <div class="stat-card"><div class="sn">4</div><div class="sl">Countries</div></div>
+      </div>
+      <hr/>
+      <h3 class="rv">Core Skills</h3>
+      <div class="g3 rv" style="gap:10px">
+        <div><strong style="font-size:14px">Prototype &amp; Iteration</strong><p style="font-size:13px;color:var(--tx3);margin-top:2px">Food-tech, community, AI/SaaS</p></div>
+        <div><strong style="font-size:14px">Market Research</strong><p style="font-size:13px;color:var(--tx3);margin-top:2px">Survey design, 300-response fieldwork</p></div>
+        <div><strong style="font-size:14px">Stakeholder Mgmt</strong><p style="font-size:13px;color:var(--tx3);margin-top:2px">6 NGOs coordinated independently</p></div>
+        <div><strong style="font-size:14px">Negotiation &amp; Sales</strong><p style="font-size:13px;color:var(--tx3);margin-top:2px">HK$15K+ single-day, consultative</p></div>
+        <div><strong style="font-size:14px">ESG Planning</strong><p style="font-size:13px;color:var(--tx3);margin-top:2px">HKMA certified</p></div>
+        <div><strong style="font-size:14px">IoT &amp; Voice AI</strong><p style="font-size:13px;color:var(--tx3);margin-top:2px">Hardware, TTS/ASR, web platform</p></div>
+      </div>
+    </div>
+    <div class="rv rv-d2">
+      <img class="av" src="assets/ivan_profile.png" alt="Ivan Li"/>
+      <div style="margin-top:14px">
+        <h3>SDG Alignment</h3>
+        <div style="display:grid;gap:6px;margin-top:4px">
+          <div class="sdg-full"><div class="sdg-bar" style="background:#4c9f38"></div><div class="sdg-num">3</div><div class="sdg-title">Good Health &amp; Well-being</div></div>
+          <div class="sdg-full"><div class="sdg-bar" style="background:#c5192d"></div><div class="sdg-num">4</div><div class="sdg-title">Quality Education</div></div>
+          <div class="sdg-full"><div class="sdg-bar" style="background:#dd1367"></div><div class="sdg-num">10</div><div class="sdg-title">Reduced Inequalities</div></div>
+          <div class="sdg-full"><div class="sdg-bar" style="background:#19486a"></div><div class="sdg-num">17</div><div class="sdg-title">Partnerships for the Goals</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VENTURES -->
+<section class="sec" id="ventures">
+  <p class="lb rv">Ventures</p>
+  <h1 class="rv rv-d1">What's being built</h1>
+
+  <div class="c rv" style="margin-bottom:16px"><div class="g2">
+    <div>
+      <h3>Carpediem House</h3>
+      <h2>Health-focused social enterprise</h2>
+      <p style="font-size:14.5px;color:var(--tx2);line-height:1.65">Sugar-free baking workshops for people with diabetes, co-delivered with 6 NGOs. 17+ sessions, 170+ participants. Backed by HK$100K from Impact Innovation Lab / MakerBay.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:12px">
+        <span class="sdg"><span class="sd" style="background:#4c9f38"></span>SDG 3</span>
+        <span class="sdg"><span class="sd" style="background:#dd1367"></span>SDG 10</span>
+        <span class="sdg"><span class="sd" style="background:#19486a"></span>SDG 17</span>
+      </div>
+    </div>
+    <div class="vp"><img src="assets/logo_carpediem.png" alt="Carpediem House" style="max-height:140px"/></div>
+  </div></div>
+
+  <div class="c rv" style="margin-bottom:16px"><div class="g2">
+    <div>
+      <h3>Carpediem House - Project Juice</h3>
+      <h2>Fermentation-based sugar reduction</h2>
+      <p style="font-size:14.5px;color:var(--tx2);line-height:1.65">Using fermentation technology to reduce sugar in fruit juice. Validated through a 300-response mixed-methods consumer study with multi-location fieldwork across Hong Kong.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:12px">
+        <span class="sdg"><span class="sd" style="background:#4c9f38"></span>SDG 3</span>
+      </div>
+    </div>
+    <div class="vp"><img src="assets/logo_juice.png" alt="Project Juice" style="max-height:150px"/></div>
+  </div></div>
+
+  <div class="c rv" style="margin-bottom:16px"><div class="g2">
+    <div>
+      <h3>DoDo Fly</h3>
+      <h2>AI education for social innovation</h2>
+      <p style="font-size:14.5px;color:var(--tx2);line-height:1.65">12-hour program helping students build community solutions with AI — research, verify, prototype, test, reflect.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:12px">
+        <span class="sdg"><span class="sd" style="background:#c5192d"></span>SDG 4</span>
+        <span class="sdg"><span class="sd" style="background:#dd1367"></span>SDG 10</span>
+        <span class="sdg"><span class="sd" style="background:#19486a"></span>SDG 17</span>
+      </div>
+    </div>
+    <div class="vp" style="background:#1a2a2a"><img src="assets/logo_dodofly.png" alt="DoDo Fly" style="max-height:150px;border-radius:8px"/></div>
+  </div></div>
+
+  <div class="c rv" style="margin-bottom:16px"><div class="g2">
+    <div>
+      <h3>DoDo</h3>
+      <h2>Reconnecting elderly people with society</h2>
+      <p style="font-size:14.5px;color:var(--tx2);line-height:1.65">A voice-AI companion for elderly people living alone, addressing isolation and emotional challenges. The long-term vision is a SaaS platform connecting subscribers to social resources — people, services, and community support — rebuilding the bridge back to society.</p>
+      <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:12px">
+        <span class="sdg"><span class="sd" style="background:#4c9f38"></span>SDG 3</span>
+        <span class="sdg"><span class="sd" style="background:#dd1367"></span>SDG 10</span>
+      </div>
+    </div>
+    <div class="vp"><img src="assets/logo_dodo.png" alt="DoDo" style="max-height:120px"/></div>
+  </div></div>
+
+  <div class="c-dk rv">
+    <h2 style="font-size:20px">The thread</h2>
+    <p>Carpediem House proved creative ideas can become real impact. Project Juice pushed it into food-tech. DoDo Fly brought it to education. DoDo applied the same instinct to elderly care — not just a device, but a pathway back to social connection.</p>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="sec" id="programs">
+  <div class="prog-hero rv">
+    <p class="lb">Programs</p>
+    <h1>From DoDo Fly to DoDo</h1>
+    <p class="sub" style="text-align:center">Both built on AI-Human Collaboration: AI handles what it's good at, humans bring what only humans can.</p>
+  </div>
+
+  <div class="prog-divider rv">
+    <div class="pd-line"></div>
+    <div class="pd-name">DoDo Fly</div>
+    <div class="pd-line"></div>
+  </div>
+
+  <div class="c rv" style="margin-bottom:16px;border-left:3px solid var(--blue)">
+    <h3 style="color:var(--blue)">The Problem</h3>
+    <h2>AI is widening the gap between students</h2>
+    <p style="font-size:15px;color:var(--tx2);line-height:1.65;max-width:60ch">High-resource students already use AI for learning and career readiness. Band 2-3 students often have no access, no guidance, and no safe space to learn. Without intervention, this gap only grows.</p>
+  </div>
+
+  <div class="c rv" style="margin-bottom:16px">
+    <h3>The Approach</h3>
+    <h2>Not "learning AI" — learning to build with AI</h2>
+    <p style="font-size:15px;color:var(--tx2);line-height:1.65;margin-bottom:16px;max-width:56ch">Project-based learning where students use AI to tackle real community problems, developing problem-solving, creativity, and execution skills.</p>
+    <div class="flow rv">
+      <div class="flow-step"><div class="fs-num">1</div><div class="fs-title">Identify</div><div class="fs-desc">Find a real problem</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step"><div class="fs-num">2</div><div class="fs-title">Research</div><div class="fs-desc">AI-assisted research</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step"><div class="fs-num">3</div><div class="fs-title">Build</div><div class="fs-desc">Create an MVP</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step"><div class="fs-num">4</div><div class="fs-title">Test</div><div class="fs-desc">User testing</div></div>
+      <div class="flow-arrow">&rarr;</div>
+      <div class="flow-step"><div class="fs-num">5</div><div class="fs-title">Reflect</div><div class="fs-desc">Pitch &amp; reflect</div></div>
+    </div>
+  </div>
+
+  <div class="c rv" style="margin-bottom:16px">
+    <h3>12-hour program structure</h3>
+    <table class="tb" style="margin-top:4px">
+      <thead><tr><th>Phase</th><th>Sessions</th><th>Output</th><th>AI Role</th><th>Human Role</th></tr></thead>
+      <tbody>
+        <tr><td>Define</td><td>1-2</td><td>Problem statement</td><td>Mapping &amp; brainstorm</td><td>Decision &amp; input</td></tr>
+        <tr><td>Research</td><td>3-4</td><td>Evidence pack</td><td>Draft &amp; source finding</td><td>Verify &amp; judge</td></tr>
+        <tr><td>Build</td><td>5-8</td><td>MVP prototype</td><td>Content assist</td><td>Design &amp; build</td></tr>
+        <tr><td>Test &amp; Pitch</td><td>9-12</td><td>Results &amp; reflection</td><td>Analysis support</td><td>Present &amp; own</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="prog-divider rv" style="margin-top:48px">
+    <div class="pd-line"></div>
+    <div class="pd-name">DoDo</div>
+    <div class="pd-line"></div>
+  </div>
+
+  <div class="c rv" style="margin-bottom:16px;border-left:3px solid var(--green)">
+    <h3 style="color:var(--green)">The Problem</h3>
+    <h2>Elderly isolation is a crisis hiding in plain sight</h2>
+    <p style="font-size:15px;color:var(--tx2);line-height:1.65;max-width:60ch">Many elderly people in Hong Kong face loneliness, emotional distress, and disconnection from community resources. Existing tech solutions stop at functionality — they lack the human warmth that truly matters.</p>
+  </div>
+
+  <div class="c rv" style="margin-bottom:16px"><div class="g2">
+    <div>
+      <h3>The Vision</h3>
+      <h2>AI as bridge, not replacement</h2>
+      <p style="font-size:15px;color:var(--tx2);line-height:1.65">DoDo positions AI as an entry point — daily voice companionship that understands needs and reduces isolation. The real value comes after: connecting subscribers to real people, services, and community support through a subscription-based care model.</p>
+    </div>
+    <div><div class="ss"><img src="assets/dodo_voicebox.png" alt="DoDo Voice Box UI"/></div></div>
+  </div></div>
+
+  <div class="c rv" style="margin-bottom:16px">
+    <h3>Service Model</h3>
+    <h2>Three layers of care</h2>
+    <div class="svc-ring" style="margin-top:8px">
+      <div class="svc-layer" style="width:100%;max-width:520px;padding:18px 22px;background:var(--green-l);border:1px solid #b8dcc6;gap:14px">
+        <div class="circ" style="background:var(--green)">3</div>
+        <div style="text-align:left"><div style="font-size:14px;font-weight:700;color:var(--green)">Community Connection</div><div style="font-size:13px;color:var(--tx2)">Resource referral, community support, life assistance</div></div>
+      </div>
+      <div style="font-size:16px;color:var(--tx3)">&uarr;</div>
+      <div class="svc-layer" style="width:100%;max-width:420px;padding:18px 22px;background:#f0f7ff;border:1px solid #b8d4f0;gap:14px">
+        <div class="circ" style="background:var(--blue)">2</div>
+        <div style="text-align:left"><div style="font-size:14px;font-weight:700;color:var(--blue)">Human Visit</div><div style="font-size:13px;color:var(--tx2)">Monthly in-person visit — genuine care, not mechanical service</div></div>
+      </div>
+      <div style="font-size:16px;color:var(--tx3)">&uarr;</div>
+      <div class="svc-layer" style="width:100%;max-width:320px;padding:18px 22px;background:var(--warm);border:1px solid var(--bd);gap:14px">
+        <div class="circ" style="background:var(--tx)">1</div>
+        <div style="text-align:left"><div style="font-size:14px;font-weight:700">AI Companion</div><div style="font-size:13px;color:var(--tx2)">Daily voice interaction, monitoring, early detection</div></div>
+      </div>
+    </div>
+    <p style="font-size:13px;color:var(--tx3);text-align:center;margin-top:10px">AI lowers barriers &rarr; Humans provide care &rarr; Society reconnects</p>
+  </div>
+
+  <div class="rv" style="margin-top:40px">
+    <h3 style="text-align:center;margin-bottom:12px">Side by Side</h3>
+    <div class="cmp" style="background:var(--s)">
+      <div class="cmp-col">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <img src="assets/logo_dodofly.png" alt="" style="width:30px;height:30px;object-fit:contain;border-radius:6px"/>
+          <h2 style="margin:0;font-size:20px">DoDo Fly</h2>
+        </div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--blue)">&rarr;</div><div><strong>For</strong> Band 2-3 secondary students</div></div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--blue)">&rarr;</div><div><strong>Problem</strong> AI access gap in education</div></div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--blue)">&rarr;</div><div><strong>Method</strong> Project-based learning</div></div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--blue)">&rarr;</div><div><strong>AI role</strong> Research &amp; drafting assistant</div></div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--blue)">&rarr;</div><div><strong>Human role</strong> Verify, decide, build, reflect</div></div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--blue)">&rarr;</div><div><strong>Goal</strong> Inclusive education</div></div>
+      </div>
+      <div class="cmp-col">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <img src="assets/logo_dodo.png" alt="" style="width:30px;height:30px;object-fit:contain;border-radius:6px"/>
+          <h2 style="margin:0;font-size:20px">DoDo</h2>
+        </div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--green)">&rarr;</div><div><strong>For</strong> Elderly people living alone</div></div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--green)">&rarr;</div><div><strong>Problem</strong> Isolation &amp; disconnection</div></div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--green)">&rarr;</div><div><strong>Method</strong> Voice AI + subscription care</div></div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--green)">&rarr;</div><div><strong>AI role</strong> Companion &amp; early detection</div></div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--green)">&rarr;</div><div><strong>Human role</strong> Visit, care, connect</div></div>
+        <div class="cmp-row"><div class="cmp-icon" style="background:var(--green)">&rarr;</div><div><strong>Goal</strong> Reconnect with society</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c-dk rv" style="margin-top:18px">
+    <h2 style="font-size:20px">The shared belief</h2>
+    <p>AI should never replace human connection — it should make it possible where it wasn't before. For students, AI opens the door to capability. For elderly people, AI bridges the way back to community. Technology starts the process; real people finish it.</p>
+  </div>
+</section>
+
+<!-- GLOBAL -->
+<section class="sec" id="global">
+  <p class="lb rv">Global</p>
+  <h1 class="rv rv-d1">Four countries, four lenses</h1>
+  <div class="gal">
+    <figure class="rv"><img src="assets/italy.png" alt="Italy"/><figcaption><strong>Italy — Milan</strong> Bocconi University. Entrepreneurship coursework and team-based strategy projects. Developed an O2O food-recovery concept for small shops.</figcaption></figure>
+    <figure class="rv rv-d1"><img src="assets/japan_kyoto.png" alt="Japan"/><figcaption><strong>Japan — Kyoto</strong> Doshisha University. Studied sustainability-focused business and social issues. Proposed solutions for traditional shops in the creative industry.</figcaption></figure>
+    <figure class="rv rv-d2"><img src="assets/hungary.png" alt="Hungary"/><figcaption><strong>Hungary — Szeged</strong> One-year AFS high school exchange. Lived with a host family, navigating cross-cultural communication through daily school and community life.</figcaption></figure>
+    <figure class="rv rv-d3"><img src="assets/cambodia.png" alt="Cambodia"/><figcaption><strong>Cambodia</strong> Volunteer teaching in rural communities — English, life skills, and world knowledge. Gained first-hand understanding of needs in resource-constrained settings.</figcaption></figure>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="sec" id="contact">
+  <p class="lb rv">Contact</p>
+  <h1 class="rv rv-d1">Get in touch</h1>
+  <p class="sub rv rv-d2" style="margin-bottom:24px">Partnerships, pilots, collaboration — always open to meaningful conversations.</p>
+  <div class="rv rv-d3" style="display:flex;gap:14px;flex-wrap:wrap">
+    <a class="cta-btn" href="mailto:hunglamli&#64;ln.hk">
+      <svg viewBox="0 0 24 24"><path d="M2 6a2 2 0 012-2h16a2 2 0 012 2v12a2 2 0 01-2 2H4a2 2 0 01-2-2V6zm2 0l8 5 8-5H4zm0 2v10h16V8l-8 5-8-5z"/></svg>
+      hunglamli&#64;ln.hk
+    </a>
+    <a class="cta-btn" href="tel:+85264104866">
+      <svg viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 01.99-.27c1.12.37 2.33.57 3.6.57a1 1 0 011 1V20a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1c0 1.27.2 2.48.57 3.6a1 1 0 01-.27.99l-2.18 2.2z"/></svg>
+      +852 6410 4866
+    </a>
+  </div>
+</section>
+
+</main>
+
+<footer><div class="w">&copy; 2025 Ivan Li</div></footer>
+
+<script>
+(function(){
+  var lk=[].slice.call(document.querySelectorAll('.nr a'));
+  var sc=lk.map(function(l){return document.querySelector(l.getAttribute('href'))});
+  function up(){
+    var y=window.scrollY+72,c=0;
+    sc.forEach(function(s,i){if(s&&s.offsetTop<=y)c=i});
+    lk.forEach(function(l,i){l.classList.toggle('on',i===c)});
+  }
+  window.addEventListener('scroll',up,{passive:true});up();
+  var els=[].slice.call(document.querySelectorAll('.rv'));
+  if('IntersectionObserver' in window){
+    var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis');o.unobserve(en.target)}})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+    els.forEach(function(el){o.observe(el)});
+  }else{els.forEach(function(el){el.classList.add('vis')})}
+})();
+</script>
+</body>
+</html>
