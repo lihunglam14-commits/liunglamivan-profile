@@ -1,66 +1,104 @@
 # Ivan Li Personal Academic Website
 
-Static personal profile / paper website for GitHub Pages. The site is a plain HTML page with inline CSS and JavaScript plus local image assets. No build step is required.
+Static personal profile / academic website for GitHub Pages. The site is plain HTML with inline CSS and JavaScript plus local image assets. No build step, package manager, or framework is required.
 
-## Final structure
+## Deployment Method
+
+Use GitHub Pages from the `main` branch root.
+
+GitHub setting:
+
+```text
+Settings -> Pages -> Build and deployment
+Source: Deploy from a branch
+Branch: main
+Folder: / (root)
+```
+
+This is the recommended method because the website is already static and can be served directly from the repository root.
+
+The workflow file at `.github/workflows/deploy-pages.yml` is manual-only and is not part of the normal publishing flow. Do not switch Pages to `GitHub Actions` unless you intentionally decide to use that alternate method later.
+
+## Project Structure
 
 ```text
 .
-├── .github/
-│   └── workflows/
-│       └── deploy-pages.yml
-├── assets/
-│   ├── cambodia.png
-│   ├── carpediem.jpg
-│   ├── dodo_voicebox.png
-│   ├── hungary.png
-│   ├── italy.png
-│   ├── ivan_profile.png
-│   ├── japan_kyoto.png
-│   ├── logo_carpediem.png
-│   ├── logo_dodo.png
-│   ├── logo_dodofly.png
-│   └── logo_juice.png
-├── backup/
-│   └── original-export.zip
-├── .gitignore
-├── .nojekyll
-├── README.md
-└── index.html
+|-- .github/
+|   `-- workflows/
+|       `-- deploy-pages.yml
+|-- assets/
+|   |-- cambodia.png
+|   |-- carpediem.jpg
+|   |-- dodo_voicebox.png
+|   |-- hungary.png
+|   |-- italy.png
+|   |-- ivan_profile.png
+|   |-- japan_kyoto.png
+|   |-- logo_carpediem.png
+|   |-- logo_dodo.png
+|   |-- logo_dodofly.png
+|   `-- logo_juice.png
+|-- backup/
+|   `-- original-export.zip
+|-- .gitignore
+|-- .nojekyll
+|-- README.md
+`-- index.html
 ```
 
-`backup/` is only a local archive copy. It is ignored by Git and should not be uploaded if you use GitHub's web upload interface.
+`backup/` is only a local archive copy. It is ignored by Git and should not be uploaded to GitHub.
 
-## GitHub Pages launch steps
+## First-Time GitHub Upload
 
-### Recommended: Deploy from a branch
+Run these commands from the project root:
 
-1. Create a GitHub repository.
-2. Put `index.html`, `assets/`, `.nojekyll`, and this `README.md` in the repository root.
-3. Push the repository to the `main` branch.
-4. On GitHub, open `Settings` -> `Pages`.
-5. Under `Build and deployment`, set `Source` to `Deploy from a branch`.
-6. Set `Branch` to `main` and `Folder` to `/ (root)`.
-7. Click `Save`.
-8. Wait for GitHub Pages to finish publishing.
+```bash
+git init
+git branch -M main
+git status -sb
+git add index.html assets README.md .nojekyll .github/workflows/deploy-pages.yml .gitignore
+git commit -m "Initial personal website"
+git remote add origin https://github.com/<your-github-username>/<repo-name>.git
+git push -u origin main
+```
 
-Expected URL:
+Then open the repository on GitHub and set Pages to:
+
+```text
+Source: Deploy from a branch
+Branch: main
+Folder: / (root)
+```
+
+Expected public URL:
 
 - Project site: `https://<your-github-username>.github.io/<repo-name>/`
-- User site (only if the repo name is exactly `<your-github-username>.github.io`): `https://<your-github-username>.github.io/`
+- User site: `https://<your-github-username>.github.io/` if the repo is named `<your-github-username>.github.io`
 
-### Optional: GitHub Actions deployment
+## Normal Update Workflow
 
-This repo also includes `.github/workflows/deploy-pages.yml`.
+After editing `index.html`, `assets/`, or documentation, run:
 
-1. Push the repository to `main`.
-2. On GitHub, open `Settings` -> `Pages`.
-3. Under `Build and deployment`, set `Source` to `GitHub Actions`.
-4. GitHub will run the included workflow automatically on each push to `main`.
+```bash
+git status -sb
+git add index.html assets README.md .nojekyll .github/workflows/deploy-pages.yml .gitignore
+git commit -m "Update personal website"
+git push origin main
+```
+
+After the push finishes, GitHub Pages should publish the updated site automatically. Publishing is not instant; wait for the Pages deployment to finish.
+
+If the public site does not update immediately:
+
+- Check the repository's GitHub Pages deployment status.
+- Check the repository's Actions tab for any Pages build/deployment messages.
+- Refresh the public page with a cache bypass: `Ctrl+F5` on Windows or `Cmd+Shift+R` on macOS.
 
 ## Notes
 
-- The site is plain static HTML, not a framework app.
-- All local site paths are relative, so the page works as a project site under `/repo-name/`.
+- The site is plain static HTML, not React, Vite, Next.js, or another framework.
+- `index.html` is the main website file.
 - CSS and JavaScript are embedded directly in `index.html`.
-- `.nojekyll` is included so GitHub Pages serves the site without Jekyll processing.
+- Assets live in `assets/`.
+- `.nojekyll` is included so GitHub Pages serves files directly without Jekyll processing.
+- Do not upload `backup/` to GitHub.
