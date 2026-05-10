@@ -96,14 +96,6 @@
     .tb td{padding:10px;font-size:14px;color:var(--tx2);border-bottom:1px solid var(--bdl);transition:background var(--tr)}
     .tb tr:hover td{background:var(--warm)}
     @media(max-width:640px){.tb{min-width:620px}.tb th,.tb td{font-size:13px;padding:8px}}
-    .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    @media(max-width:600px){.gal{grid-template-columns:1fr}}
-    .gal figure{margin:0;border:1px solid var(--bd);border-radius:4px;overflow:hidden;background:var(--s);transition:box-shadow var(--tr),transform var(--tr)}
-    .gal figure:hover{box-shadow:0 8px 30px rgba(0,0,0,.06);transform:translateY(-2px)}
-    .gal figure img{width:100%;height:320px;object-fit:cover;transition:transform .5s ease}
-    .gal figure:hover img{transform:scale(1.03)}
-    .gal figcaption{padding:14px 16px;font-size:13.5px;color:var(--tx2);border-top:1px solid var(--bdl);line-height:1.6}
-    .gal figcaption strong{color:var(--tx)}
     .vp{border:1px solid var(--bd);border-radius:4px;overflow:hidden;background:var(--dk);display:flex;align-items:center;justify-content:center;min-height:220px;padding:28px;transition:box-shadow var(--tr)}
     .vp:hover{box-shadow:0 8px 30px rgba(0,0,0,.12)}
     .vp img{max-height:140px;width:auto;transition:transform .4s ease}
@@ -157,7 +149,7 @@
     .ss-link:hover img{filter:brightness(1.02)}
     .ss-link:focus-visible{outline:3px solid rgba(45,138,78,.34);outline-offset:4px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .footprint{margin-top:46px}
+    .footprint{margin-top:0}
     .fp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:20px}
     .fp-head .sub{max-width:62ch}
     .fp-controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
@@ -177,6 +169,7 @@
     .fp-selected{border-left:3px solid var(--green);background:#f8faf7;padding:12px 14px;margin-bottom:16px}
     .fp-selected span{display:block;font-size:10.5px;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--green);margin-bottom:3px}
     .fp-selected strong{display:block;font-size:15px}
+    .fp-selected p{font-size:13px;color:var(--tx2);line-height:1.55;margin-top:3px}
     .country-groups{display:grid;gap:14px}
     .country-group h3{margin-bottom:8px}
     .chip-grid{display:flex;flex-wrap:wrap;gap:7px}
@@ -193,7 +186,7 @@
       html{scroll-behavior:auto}
       *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
       .rv{opacity:1;transform:none}
-      .c:hover,.gal figure:hover,.flow-step:hover,.sdg-full:hover,.svc-layer:hover,.gal figure:hover img,.vp:hover img{transform:none}
+      .c:hover,.flow-step:hover,.sdg-full:hover,.svc-layer:hover,.vp:hover img{transform:none}
       .country-chip:hover,.country-chip.is-active{transform:none}
     }
     @media(max-width:900px){.project-card .g2{grid-template-columns:1fr;gap:20px}}
@@ -471,15 +464,6 @@
 
 <!-- GLOBAL -->
 <section class="sec" id="global">
-  <p class="lb rv">Global</p>
-  <h2 class="sec-title rv rv-d1">Four countries, four lenses</h2>
-  <div class="gal">
-    <figure class="rv"><img src="assets/italy.png" alt="Italy" width="945" height="1319" loading="lazy" decoding="async"/><figcaption><strong>Italy — Milan</strong> Bocconi University. Entrepreneurship coursework and team-based strategy projects. Developed an O2O food-recovery concept for small shops.</figcaption></figure>
-    <figure class="rv rv-d1"><img src="assets/japan_kyoto.png" alt="Japan" width="2000" height="1500" loading="lazy" decoding="async"/><figcaption><strong>Japan — Kyoto</strong> Doshisha University. Studied sustainability-focused business and social issues. Proposed solutions for traditional shops in the creative industry.</figcaption></figure>
-    <figure class="rv rv-d2"><img src="assets/hungary.png" alt="Hungary" width="945" height="721" loading="lazy" decoding="async"/><figcaption><strong>Hungary — Szeged</strong> One-year AFS high school exchange. Lived with a host family, navigating cross-cultural communication through daily school and community life.</figcaption></figure>
-    <figure class="rv rv-d3"><img src="assets/cambodia.png" alt="Cambodia" width="2000" height="1500" loading="lazy" decoding="async"/><figcaption><strong>Cambodia</strong> Volunteer teaching in rural communities — English, life skills, and world knowledge. Gained first-hand understanding of needs in resource-constrained settings.</figcaption></figure>
-  </div>
-
   <div class="footprint rv" aria-labelledby="footprint-title">
     <div class="fp-head">
       <div>
@@ -508,38 +492,39 @@
           <div class="fp-count"><strong>6</strong><span>Asia</span></div>
         </div>
         <div class="fp-selected" aria-live="polite">
-          <span>Selected country</span>
+          <span>Selected perspective</span>
           <strong data-fp-selected-country>Italy · Europe</strong>
+          <p data-fp-selected-note>History, food culture, and small-business recovery shaped my view of local entrepreneurship.</p>
         </div>
         <div class="country-groups">
           <div class="country-group" data-region-group="Europe">
             <h3>Europe</h3>
             <div class="chip-grid">
-              <button class="country-chip" type="button" data-country="Italy" data-label="Italy" data-region="Europe" data-region-label="Europe" aria-label="Show Italy, Europe">Italy</button>
-              <button class="country-chip" type="button" data-country="Switzerland" data-label="Switzerland" data-region="Europe" data-region-label="Europe" aria-label="Show Switzerland, Europe">Switzerland</button>
-              <button class="country-chip" type="button" data-country="Hungary" data-label="Hungary" data-region="Europe" data-region-label="Europe" aria-label="Show Hungary, Europe">Hungary</button>
-              <button class="country-chip" type="button" data-country="Austria" data-label="Austria" data-region="Europe" data-region-label="Europe" aria-label="Show Austria, Europe">Austria</button>
-              <button class="country-chip" type="button" data-country="Germany" data-label="Germany" data-region="Europe" data-region-label="Europe" aria-label="Show Germany, Europe">Germany</button>
-              <button class="country-chip" type="button" data-country="Romania" data-label="Romania" data-region="Europe" data-region-label="Europe" aria-label="Show Romania, Europe">Romania</button>
-              <button class="country-chip" type="button" data-country="Czech Republic" data-label="Czech Republic" data-region="Europe" data-region-label="Europe" aria-label="Show Czech Republic, Europe">Czech Republic</button>
-              <button class="country-chip" type="button" data-country="Poland" data-label="Poland" data-region="Europe" data-region-label="Europe" aria-label="Show Poland, Europe">Poland</button>
-              <button class="country-chip" type="button" data-country="Estonia" data-label="Estonia" data-region="Europe" data-region-label="Europe" aria-label="Show Estonia, Europe">Estonia</button>
-              <button class="country-chip" type="button" data-country="Lithuania" data-label="Lithuania" data-region="Europe" data-region-label="Europe" aria-label="Show Lithuania, Europe">Lithuania</button>
-              <button class="country-chip" type="button" data-country="Latvia" data-label="Latvia" data-region="Europe" data-region-label="Europe" aria-label="Show Latvia, Europe">Latvia</button>
-              <button class="country-chip" type="button" data-country="Netherlands" data-label="Netherlands" data-region="Europe" data-region-label="Europe" aria-label="Show Netherlands, Europe">Netherlands</button>
-              <button class="country-chip" type="button" data-country="France" data-label="France" data-region="Europe" data-region-label="Europe" aria-label="Show France, Europe">France</button>
-              <button class="country-chip" type="button" data-country="Spain" data-label="Spain" data-region="Europe" data-region-label="Europe" aria-label="Show Spain, Europe">Spain</button>
+              <button class="country-chip" type="button" data-country="Italy" data-label="Italy" data-region="Europe" data-region-label="Europe" data-note="History, food culture, and small-business recovery shaped my view of local entrepreneurship." aria-label="Show Italy, Europe">Italy</button>
+              <button class="country-chip" type="button" data-country="Switzerland" data-label="Switzerland" data-region="Europe" data-region-label="Europe" data-note="Institutions, public order, and cross-border systems offered a reference point for social organisation." aria-label="Show Switzerland, Europe">Switzerland</button>
+              <button class="country-chip" type="button" data-country="Hungary" data-label="Hungary" data-region="Europe" data-region-label="Europe" data-note="Daily life, exchange experience, and European urban rhythm shaped my cross-cultural perspective." aria-label="Show Hungary, Europe">Hungary</button>
+              <button class="country-chip" type="button" data-country="Austria" data-label="Austria" data-region="Europe" data-region-label="Europe" data-note="Public culture, city form, and historical continuity offered a lens on civic life." aria-label="Show Austria, Europe">Austria</button>
+              <button class="country-chip" type="button" data-country="Germany" data-label="Germany" data-region="Europe" data-region-label="Europe" data-note="Infrastructure, planning discipline, and social systems showed how efficiency shapes everyday life." aria-label="Show Germany, Europe">Germany</button>
+              <button class="country-chip" type="button" data-country="Romania" data-label="Romania" data-region="Europe" data-region-label="Europe" data-note="Post-socialist urban change and local communities offered a different view of European development." aria-label="Show Romania, Europe">Romania</button>
+              <button class="country-chip" type="button" data-country="Czech Republic" data-label="Czech Republic" data-region="Europe" data-region-label="Europe" data-note="Historical streets, public space, and cultural memory shaped my understanding of city identity." aria-label="Show Czech Republic, Europe">Czech Republic</button>
+              <button class="country-chip" type="button" data-country="Poland" data-label="Poland" data-region="Europe" data-region-label="Europe" data-note="History, resilience, and urban renewal offered a perspective on social recovery and change." aria-label="Show Poland, Europe">Poland</button>
+              <button class="country-chip" type="button" data-country="Estonia" data-label="Estonia" data-region="Europe" data-region-label="Europe" data-note="Digital governance and small-state innovation showed how public systems can be designed differently." aria-label="Show Estonia, Europe">Estonia</button>
+              <button class="country-chip" type="button" data-country="Lithuania" data-label="Lithuania" data-region="Europe" data-region-label="Europe" data-note="Baltic history, civic identity, and local culture added depth to my view of European societies." aria-label="Show Lithuania, Europe">Lithuania</button>
+              <button class="country-chip" type="button" data-country="Latvia" data-label="Latvia" data-region="Europe" data-region-label="Europe" data-note="Urban layers, Baltic culture, and everyday public life shaped my regional understanding." aria-label="Show Latvia, Europe">Latvia</button>
+              <button class="country-chip" type="button" data-country="Netherlands" data-label="Netherlands" data-region="Europe" data-region-label="Europe" data-note="Urban planning, mobility, social welfare, and everyday living systems offered strong design references." aria-label="Show Netherlands, Europe">Netherlands</button>
+              <button class="country-chip" type="button" data-country="France" data-label="France" data-region="Europe" data-region-label="Europe" data-note="History, art, culture, and public life shaped my understanding of social imagination." aria-label="Show France, Europe">France</button>
+              <button class="country-chip" type="button" data-country="Spain" data-label="Spain" data-region="Europe" data-region-label="Europe" data-note="Barcelona's district planning, public facilities, and neighbourhood infrastructure shaped my view of city design." aria-label="Show Spain, Europe">Spain</button>
             </div>
           </div>
           <div class="country-group" data-region-group="Asia">
             <h3>Asia</h3>
             <div class="chip-grid">
-              <button class="country-chip" type="button" data-country="Thailand" data-label="Thailand" data-region="Asia" data-region-label="Asia" aria-label="Show Thailand, Asia">Thailand</button>
-              <button class="country-chip" type="button" data-country="Cambodia" data-label="Cambodia" data-region="Asia" data-region-label="Asia" aria-label="Show Cambodia, Asia">Cambodia</button>
-              <button class="country-chip" type="button" data-country="Malaysia" data-label="Malaysia" data-region="Asia" data-region-label="Asia" aria-label="Show Malaysia, Asia">Malaysia</button>
-              <button class="country-chip" type="button" data-country="Japan" data-label="Japan" data-region="Asia" data-region-label="Asia" aria-label="Show Japan, Asia">Japan</button>
-              <button class="country-chip" type="button" data-country="Bangladesh" data-label="Bangladesh" data-region="Asia" data-region-label="Asia" aria-label="Show Bangladesh, Asia">Bangladesh</button>
-              <button class="country-chip" type="button" data-country="China" data-label="China" data-region="Asia" data-region-label="Asia" aria-label="Show China, Asia">China</button>
+              <button class="country-chip" type="button" data-country="Thailand" data-label="Thailand" data-region="Asia" data-region-label="Asia" data-note="Markets, daily services, and community life showed how local economies respond to everyday needs." aria-label="Show Thailand, Asia">Thailand</button>
+              <button class="country-chip" type="button" data-country="Cambodia" data-label="Cambodia" data-region="Asia" data-region-label="Asia" data-note="Community teaching, local observation, and social needs shaped my understanding of education access." aria-label="Show Cambodia, Asia">Cambodia</button>
+              <button class="country-chip" type="button" data-country="Malaysia" data-label="Malaysia" data-region="Asia" data-region-label="Asia" data-note="Multicultural daily life, malls, food systems, and urban commerce showed how diverse communities coexist." aria-label="Show Malaysia, Asia">Malaysia</button>
+              <button class="country-chip" type="button" data-country="Japan" data-label="Japan" data-region="Asia" data-region-label="Asia" data-note="Sustainability, traditional shops, public order, and everyday design shaped my view of careful urban living." aria-label="Show Japan, Asia">Japan</button>
+              <button class="country-chip" type="button" data-country="Bangladesh" data-label="Bangladesh" data-region="Asia" data-region-label="Asia" data-note="Density, development pressure, and social energy offered a different lens on education and opportunity." aria-label="Show Bangladesh, Asia">Bangladesh</button>
+              <button class="country-chip" type="button" data-country="China" data-label="China" data-region="Asia" data-region-label="Asia" data-note="Local commerce, infrastructure, technology use, and social change shaped my regional understanding." aria-label="Show China, Asia">China</button>
             </div>
           </div>
         </div>
@@ -585,13 +570,15 @@
     var chips=[].slice.call(fp.querySelectorAll('.country-chip'));
     var groups=[].slice.call(fp.querySelectorAll('.country-group'));
     var selectedCountry=fp.querySelector('[data-fp-selected-country]');
+    var selectedNote=fp.querySelector('[data-fp-selected-note]');
     function meta(country){
       var source=chips.filter(function(el){return el.getAttribute('data-country')===country})[0];
       return source?{
         country:country,
         label:source.getAttribute('data-label')||country,
         region:source.getAttribute('data-region')||'',
-        regionLabel:source.getAttribute('data-region-label')||source.getAttribute('data-region')||''
+        regionLabel:source.getAttribute('data-region-label')||source.getAttribute('data-region')||'',
+        note:source.getAttribute('data-note')||''
       }:null;
     }
     function activate(country){
@@ -599,6 +586,7 @@
       if(!data)return;
       chips.forEach(function(el){el.classList.toggle('is-active',el.getAttribute('data-country')===country)});
       if(selectedCountry)selectedCountry.textContent=data.label+' · '+data.regionLabel;
+      if(selectedNote)selectedNote.textContent=data.note;
     }
     function applyFilter(region){
       filters.forEach(function(btn){

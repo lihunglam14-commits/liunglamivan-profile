@@ -96,14 +96,6 @@
     .tb td{padding:10px;font-size:14px;color:var(--tx2);border-bottom:1px solid var(--bdl);transition:background var(--tr)}
     .tb tr:hover td{background:var(--warm)}
     @media(max-width:640px){.tb{min-width:620px}.tb th,.tb td{font-size:13px;padding:8px}}
-    .gal{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    @media(max-width:600px){.gal{grid-template-columns:1fr}}
-    .gal figure{margin:0;border:1px solid var(--bd);border-radius:4px;overflow:hidden;background:var(--s);transition:box-shadow var(--tr),transform var(--tr)}
-    .gal figure:hover{box-shadow:0 8px 30px rgba(0,0,0,.06);transform:translateY(-2px)}
-    .gal figure img{width:100%;height:320px;object-fit:cover;transition:transform .5s ease}
-    .gal figure:hover img{transform:scale(1.03)}
-    .gal figcaption{padding:14px 16px;font-size:13.5px;color:var(--tx2);border-top:1px solid var(--bdl);line-height:1.6}
-    .gal figcaption strong{color:var(--tx)}
     .vp{border:1px solid var(--bd);border-radius:4px;overflow:hidden;background:var(--dk);display:flex;align-items:center;justify-content:center;min-height:220px;padding:28px;transition:box-shadow var(--tr)}
     .vp:hover{box-shadow:0 8px 30px rgba(0,0,0,.12)}
     .vp img{max-height:140px;width:auto;transition:transform .4s ease}
@@ -157,35 +149,18 @@
     .ss-link:hover img{filter:brightness(1.02)}
     .ss-link:focus-visible{outline:3px solid rgba(45,138,78,.34);outline-offset:4px}
     .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .footprint{margin-top:46px}
+    .footprint{margin-top:0}
     .fp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:20px}
     .fp-head .sub{max-width:62ch}
     .fp-controls{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
     .fp-filter{border:1px solid var(--bd);background:var(--s);color:var(--tx2);border-radius:99px;padding:8px 14px;font:700 11px/1 var(--sa);letter-spacing:1.2px;text-transform:uppercase;cursor:pointer;transition:all var(--tr)}
     .fp-filter:hover,.fp-filter.is-active{background:var(--dk);border-color:var(--dk);color:var(--dktx)}
-    .fp-filter:focus-visible,.fp-pin:focus-visible,.country-chip:focus-visible{outline:3px solid rgba(45,107,196,.28);outline-offset:3px}
+    .fp-filter:focus-visible,.country-chip:focus-visible{outline:3px solid rgba(45,107,196,.28);outline-offset:3px}
     .fp-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(320px,.75fr);gap:18px;align-items:stretch}
     .fp-map-card,.fp-list-card{background:var(--s);border:1px solid var(--bd);border-radius:4px}
     .fp-map-card{padding:18px}
-    .fp-map{position:relative;min-height:380px;aspect-ratio:16/9;overflow:hidden;border-radius:4px;background:linear-gradient(135deg,#f4f1eb 0%,#fff 55%,#eef5f0 100%);border:1px solid var(--bdl)}
-    .fp-map svg{position:absolute;inset:0;width:100%;height:100%}
-    .fp-graticule{fill:none;stroke:rgba(15,15,15,.06);stroke-width:1}
-    .fp-land{fill:#ded8ce;stroke:#bfb6aa;stroke-width:1.4}
-    .fp-land-soft{fill:#eee9e0;stroke:#d1c8bb;stroke-width:1}
-    .fp-coast{fill:none;stroke:rgba(15,15,15,.12);stroke-width:1.1}
-    .fp-route{fill:none;stroke:rgba(45,107,196,.22);stroke-width:2;stroke-dasharray:7 8}
-    .fp-region-label{position:absolute;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--tx3);background:rgba(255,255,255,.72);border:1px solid rgba(221,216,208,.8);border-radius:99px;padding:5px 9px}
-    .fp-region-label.europe{left:25%;top:24%}
-    .fp-region-label.asia{right:23%;top:30%}
-    .fp-pin{--pin:var(--blue);position:absolute;left:var(--x);top:var(--y);width:17px;height:17px;border-radius:50%;border:2px solid #fff;background:var(--pin);box-shadow:0 5px 14px rgba(0,0,0,.2);transform:translate(-50%,-50%);cursor:pointer;transition:transform var(--tr),box-shadow var(--tr),opacity var(--tr),background var(--tr);z-index:2}
-    .fp-pin::after{content:"";position:absolute;inset:-7px;border:1px solid var(--pin);border-radius:50%;opacity:.24;animation:fp-pulse 2.8s ease-out infinite}
-    .fp-pin[data-region="Asia"]{--pin:var(--green)}
-    .fp-pin:hover,.fp-pin.is-active,.fp-pin:focus-visible{transform:translate(-50%,-72%) scale(1.14);box-shadow:0 10px 22px rgba(0,0,0,.24);z-index:3}
-    .fp-pin.is-active{outline:2px solid rgba(15,15,15,.18);outline-offset:4px}
-    .fp-tip{position:absolute;left:var(--tip-x,44%);top:var(--tip-y,38%);max-width:min(220px,70%);padding:10px 12px;border:1px solid var(--bd);border-radius:4px;background:rgba(255,255,255,.95);box-shadow:0 12px 30px rgba(0,0,0,.1);transform:translate(-50%,calc(-100% - 16px));opacity:0;pointer-events:none;transition:opacity var(--tr),transform var(--tr);z-index:5}
-    .fp-tip.is-visible{opacity:1;transform:translate(-50%,calc(-100% - 10px))}
-    .fp-tip strong{display:block;font-size:13px;line-height:1.2}
-    .fp-tip span{display:block;font-size:11.5px;color:var(--tx3);margin-top:2px}
+    .fp-map{display:flex;align-items:center;justify-content:center;min-height:360px;aspect-ratio:1586/992;overflow:hidden;border-radius:4px;background:#f4f1eb;border:1px solid var(--bdl)}
+    .fp-map img{width:100%;height:100%;object-fit:contain;background:#f4f1eb}
     .fp-list-card{padding:22px}
     .fp-counts{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
     .fp-count{border:1px solid var(--bdl);border-radius:4px;background:var(--warm);padding:12px 10px}
@@ -202,7 +177,6 @@
     .country-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 3px rgba(45,107,196,.1)}
     .country-chip[data-region="Asia"]::before{background:var(--green);box-shadow:0 0 0 3px rgba(45,138,78,.1)}
     .country-chip:hover,.country-chip.is-active{background:var(--dk);border-color:var(--dk);color:var(--dktx);transform:translateY(-1px)}
-    @keyframes fp-pulse{0%{transform:scale(.78);opacity:.35}70%{transform:scale(1.8);opacity:0}100%{transform:scale(1.8);opacity:0}}
     .circ{width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff;flex-shrink:0}
     footer{border-top:1px solid var(--bd);padding:20px 0 26px;font-size:12px;color:var(--tx3)}
     .rv{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
@@ -212,13 +186,12 @@
       html{scroll-behavior:auto}
       *,*::before,*::after{transition-duration:.01ms!important;animation-duration:.01ms!important;animation-iteration-count:1!important}
       .rv{opacity:1;transform:none}
-      .c:hover,.gal figure:hover,.flow-step:hover,.sdg-full:hover,.svc-layer:hover,.gal figure:hover img,.vp:hover img{transform:none}
-      .fp-pin::after{animation:none}
-      .fp-pin:hover,.fp-pin.is-active,.country-chip:hover,.country-chip.is-active{transform:none}
+      .c:hover,.flow-step:hover,.sdg-full:hover,.svc-layer:hover,.vp:hover img{transform:none}
+      .country-chip:hover,.country-chip.is-active{transform:none}
     }
     @media(max-width:900px){.project-card .g2{grid-template-columns:1fr;gap:20px}}
-    @media(max-width:980px){.fp-head{align-items:flex-start;flex-direction:column}.fp-controls{justify-content:flex-start}.fp-grid{grid-template-columns:1fr}.fp-map{min-height:330px}}
-    @media(max-width:520px){.fp-map-card,.fp-list-card{padding:14px}.fp-map{min-height:300px;aspect-ratio:1.05}.fp-counts{grid-template-columns:1fr 1fr}.fp-count:last-child{grid-column:1/-1}.fp-region-label{font-size:10px}.fp-region-label.europe{left:20%;top:18%}.fp-region-label.asia{right:12%;top:28%}}
+    @media(max-width:980px){.fp-head{align-items:flex-start;flex-direction:column}.fp-controls{justify-content:flex-start}.fp-grid{grid-template-columns:1fr}.fp-map{min-height:320px}}
+    @media(max-width:520px){.fp-map-card,.fp-list-card{padding:14px}.fp-map{min-height:0}.fp-counts{grid-template-columns:1fr 1fr}.fp-count:last-child{grid-column:1/-1}}
   </style>
 </head>
 <body>
@@ -491,15 +464,6 @@
 
 <!-- GLOBAL -->
 <section class="sec" id="global">
-                <p class="lb rv">國際經歷</p>
-  <h2 class="sec-title rv rv-d1">四個國家，四種視角</h2>
-  <div class="gal">
-    <figure class="rv"><img src="assets/italy.png" alt="意大利" width="945" height="1319" loading="lazy" decoding="async"/><figcaption><strong>意大利 — 米蘭</strong> Bocconi University。修讀創業相關課程及團隊策略項目，並為小店構思 O2O 食物回收概念。</figcaption></figure>
-    <figure class="rv rv-d1"><img src="assets/japan_kyoto.png" alt="日本" width="2000" height="1500" loading="lazy" decoding="async"/><figcaption><strong>日本 — 京都</strong> Doshisha University。學習以可持續發展為核心的商業與社會議題，並為創意產業中的傳統店舖提出方案。</figcaption></figure>
-    <figure class="rv rv-d2"><img src="assets/hungary.png" alt="匈牙利" width="945" height="721" loading="lazy" decoding="async"/><figcaption><strong>匈牙利 — 塞格德</strong> 一年 AFS 高中交流。與寄宿家庭同住，透過日常校園與社區生活學習跨文化溝通。</figcaption></figure>
-    <figure class="rv rv-d3"><img src="assets/cambodia.png" alt="柬埔寨" width="2000" height="1500" loading="lazy" decoding="async"/><figcaption><strong>柬埔寨</strong> 於鄉村社區義務教學，包括英語、生活技能與世界知識；親身理解資源有限環境中的需要。</figcaption></figure>
-  </div>
-
   <div class="footprint rv" aria-labelledby="footprint-title">
     <div class="fp-head">
       <div>
@@ -516,41 +480,8 @@
 
     <div class="fp-grid">
       <div class="fp-map-card">
-        <div class="fp-map" role="img" aria-label="標示已到訪國家的歐洲與亞洲風格化地圖">
-          <svg viewBox="0 0 1000 560" aria-hidden="true" focusable="false">
-            <path class="fp-graticule" d="M120 170H900M120 280H900M120 390H900M260 90V475M460 80V485M660 95V480M840 130V445"/>
-            <path class="fp-land" d="M112 304 C130 260 172 225 218 214 C246 207 264 179 304 171 C350 162 390 184 426 171 C474 154 506 126 568 128 C644 130 690 154 752 158 C824 162 878 196 908 250 C936 300 922 354 878 384 C828 419 758 408 702 432 C640 458 560 438 516 402 C478 371 438 368 392 386 C334 409 260 395 224 357 C190 321 156 329 112 304Z"/>
-            <path class="fp-land-soft" d="M280 150 C310 103 363 96 398 126 C421 146 414 184 378 194 C332 208 296 190 280 150Z"/>
-            <path class="fp-land-soft" d="M354 386 C380 420 402 460 384 488 C354 476 340 430 354 386Z"/>
-            <path class="fp-land-soft" d="M695 382 C730 396 748 430 736 464 C700 456 686 420 695 382Z"/>
-            <path class="fp-land-soft" d="M820 392 C848 418 852 456 832 486 C798 462 796 420 820 392Z"/>
-            <path class="fp-land-soft" d="M882 258 C902 282 906 314 886 336 C858 318 856 282 882 258Z"/>
-            <path class="fp-coast" d="M132 296 C210 278 252 250 310 272 C362 292 388 266 452 252 C548 231 610 246 692 272 C772 298 842 292 904 324"/>
-            <path class="fp-route" d="M354 394 C470 314 620 286 876 318"/>
-          </svg>
-          <span class="fp-region-label europe">歐洲</span>
-          <span class="fp-region-label asia">亞洲</span>
-          <button class="fp-pin" type="button" style="--x:37%;--y:49%" data-country="Italy" data-label="意大利" data-region="Europe" data-region-label="歐洲" data-note="創業課程把學術策略與食物回收構想連結起來。" aria-label="顯示意大利，歐洲"><span class="sr-only">意大利，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:34%;--y:42%" data-country="Switzerland" data-label="瑞士" data-region="Europe" data-region-label="歐洲" data-note="作為理解制度、公共系統與跨境歐洲脈絡的參照。" aria-label="顯示瑞士，歐洲"><span class="sr-only">瑞士，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:42%;--y:41%" data-country="Hungary" data-label="匈牙利" data-region="Europe" data-region-label="歐洲" data-note="一年交流塑造日常跨文化溝通與獨立生活能力。" aria-label="顯示匈牙利，歐洲"><span class="sr-only">匈牙利，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:39%;--y:40%" data-country="Austria" data-label="奧地利" data-region="Europe" data-region-label="歐洲" data-note="從中歐視角理解文化流動、公共空間與生活系統。" aria-label="顯示奧地利，歐洲"><span class="sr-only">奧地利，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:35%;--y:36%" data-country="Germany" data-label="德國" data-region="Europe" data-region-label="歐洲" data-note="基礎建設與公民系統提供了實用的學習參照。" aria-label="顯示德國，歐洲"><span class="sr-only">德國，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:47%;--y:46%" data-country="Romania" data-label="羅馬尼亞" data-region="Europe" data-region-label="歐洲" data-note="理解區域發展、轉型社會與社區變化的另一個角度。" aria-label="顯示羅馬尼亞，歐洲"><span class="sr-only">羅馬尼亞，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:38%;--y:35%" data-country="Czech Republic" data-label="捷克" data-region="Europe" data-region-label="歐洲" data-note="在中歐城市脈絡中理解歷史、生活與現代系統。" aria-label="顯示捷克，歐洲"><span class="sr-only">捷克，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:41%;--y:31%" data-country="Poland" data-label="波蘭" data-region="Europe" data-region-label="歐洲" data-note="從歷史、韌性與公民變遷中理解地區學習。" aria-label="顯示波蘭，歐洲"><span class="sr-only">波蘭，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:45%;--y:22%" data-country="Estonia" data-label="愛沙尼亞" data-region="Europe" data-region-label="歐洲" data-note="以數碼社會與小國創新作為系統思維參照。" aria-label="顯示愛沙尼亞，歐洲"><span class="sr-only">愛沙尼亞，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:44%;--y:29%" data-country="Lithuania" data-label="立陶宛" data-region="Europe" data-region-label="歐洲" data-note="從波羅的海地區理解身份、公共生活與區域轉型。" aria-label="顯示立陶宛，歐洲"><span class="sr-only">立陶宛，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:45%;--y:26%" data-country="Latvia" data-label="拉脫維亞" data-region="Europe" data-region-label="歐洲" data-note="接觸波羅的海社群脈絡與跨境文化互動。" aria-label="顯示拉脫維亞，歐洲"><span class="sr-only">拉脫維亞，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:31%;--y:34%" data-country="Netherlands" data-label="荷蘭" data-region="Europe" data-region-label="歐洲" data-note="城市規劃與流動性展示設計如何影響日常公共生活。" aria-label="顯示荷蘭，歐洲"><span class="sr-only">荷蘭，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:29%;--y:43%" data-country="France" data-label="法國" data-region="Europe" data-region-label="歐洲" data-note="以文化制度與歐洲社會脈絡作為學習參照。" aria-label="顯示法國，歐洲"><span class="sr-only">法國，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:25%;--y:55%" data-country="Spain" data-label="西班牙" data-region="Europe" data-region-label="歐洲" data-note="公共空間與地方身份提供了南歐視角。" aria-label="顯示西班牙，歐洲"><span class="sr-only">西班牙，歐洲</span></button>
-          <button class="fp-pin" type="button" style="--x:75%;--y:68%" data-country="Thailand" data-label="泰國" data-region="Asia" data-region-label="亞洲" data-note="接觸東南亞社群脈絡與日常服務系統。" aria-label="顯示泰國，亞洲"><span class="sr-only">泰國，亞洲</span></button>
-          <button class="fp-pin" type="button" style="--x:77%;--y:72%" data-country="Cambodia" data-label="柬埔寨" data-region="Asia" data-region-label="亞洲" data-note="鄉村社區義務教學讓我更具體理解資源有限的環境。" aria-label="顯示柬埔寨，亞洲"><span class="sr-only">柬埔寨，亞洲</span></button>
-          <button class="fp-pin" type="button" style="--x:77%;--y:83%" data-country="Malaysia" data-label="馬來西亞" data-region="Asia" data-region-label="亞洲" data-note="從多元文化社會理解東南亞地區商業與社群脈絡。" aria-label="顯示馬來西亞，亞洲"><span class="sr-only">馬來西亞，亞洲</span></button>
-          <button class="fp-pin" type="button" style="--x:90%;--y:44%" data-country="Japan" data-label="日本" data-region="Asia" data-region-label="亞洲" data-note="可持續商業學習把傳統與實用創新連結起來。" aria-label="顯示日本，亞洲"><span class="sr-only">日本，亞洲</span></button>
-          <button class="fp-pin" type="button" style="--x:68%;--y:58%" data-country="Bangladesh" data-label="孟加拉" data-region="Asia" data-region-label="亞洲" data-note="作為理解南亞社群需要與發展系統的參照。" aria-label="顯示孟加拉，亞洲"><span class="sr-only">孟加拉，亞洲</span></button>
-          <button class="fp-pin" type="button" style="--x:76%;--y:48%" data-country="China" data-label="中國" data-region="Asia" data-region-label="亞洲" data-note="作為理解教育機會、科技應用與社群變化的本地區域參照。" aria-label="顯示中國，亞洲"><span class="sr-only">中國，亞洲</span></button>
-          <div class="fp-tip" role="status" aria-live="polite"><strong>意大利</strong><span>歐洲</span></div>
+        <div class="fp-map">
+          <img src="assets/global_footprint_map.png" alt="標示已到訪歐洲與亞洲國家的地圖：意大利、瑞士、匈牙利、奧地利、德國、羅馬尼亞、捷克、波蘭、愛沙尼亞、立陶宛、拉脫維亞、荷蘭、法國、西班牙、泰國、柬埔寨、馬來西亞、日本、孟加拉和中國。" width="1586" height="992" loading="lazy" decoding="async"/>
         </div>
       </div>
 
@@ -563,37 +494,37 @@
         <div class="fp-selected" aria-live="polite">
           <span>目前視角</span>
           <strong data-fp-selected-country>意大利 · 歐洲</strong>
-          <p data-fp-selected-note>創業課程把學術策略與食物回收構想連結起來。</p>
+          <p data-fp-selected-note>歷史、飲食文化與小型商業復甦，塑造了我對本地創業的觀察。</p>
         </div>
         <div class="country-groups">
           <div class="country-group" data-region-group="Europe">
             <h3>歐洲</h3>
             <div class="chip-grid">
-              <button class="country-chip" type="button" data-country="Italy" data-label="意大利" data-region="Europe" data-region-label="歐洲" aria-label="顯示意大利，歐洲">意大利</button>
-              <button class="country-chip" type="button" data-country="Switzerland" data-label="瑞士" data-region="Europe" data-region-label="歐洲" aria-label="顯示瑞士，歐洲">瑞士</button>
-              <button class="country-chip" type="button" data-country="Hungary" data-label="匈牙利" data-region="Europe" data-region-label="歐洲" aria-label="顯示匈牙利，歐洲">匈牙利</button>
-              <button class="country-chip" type="button" data-country="Austria" data-label="奧地利" data-region="Europe" data-region-label="歐洲" aria-label="顯示奧地利，歐洲">奧地利</button>
-              <button class="country-chip" type="button" data-country="Germany" data-label="德國" data-region="Europe" data-region-label="歐洲" aria-label="顯示德國，歐洲">德國</button>
-              <button class="country-chip" type="button" data-country="Romania" data-label="羅馬尼亞" data-region="Europe" data-region-label="歐洲" aria-label="顯示羅馬尼亞，歐洲">羅馬尼亞</button>
-              <button class="country-chip" type="button" data-country="Czech Republic" data-label="捷克" data-region="Europe" data-region-label="歐洲" aria-label="顯示捷克，歐洲">捷克</button>
-              <button class="country-chip" type="button" data-country="Poland" data-label="波蘭" data-region="Europe" data-region-label="歐洲" aria-label="顯示波蘭，歐洲">波蘭</button>
-              <button class="country-chip" type="button" data-country="Estonia" data-label="愛沙尼亞" data-region="Europe" data-region-label="歐洲" aria-label="顯示愛沙尼亞，歐洲">愛沙尼亞</button>
-              <button class="country-chip" type="button" data-country="Lithuania" data-label="立陶宛" data-region="Europe" data-region-label="歐洲" aria-label="顯示立陶宛，歐洲">立陶宛</button>
-              <button class="country-chip" type="button" data-country="Latvia" data-label="拉脫維亞" data-region="Europe" data-region-label="歐洲" aria-label="顯示拉脫維亞，歐洲">拉脫維亞</button>
-              <button class="country-chip" type="button" data-country="Netherlands" data-label="荷蘭" data-region="Europe" data-region-label="歐洲" aria-label="顯示荷蘭，歐洲">荷蘭</button>
-              <button class="country-chip" type="button" data-country="France" data-label="法國" data-region="Europe" data-region-label="歐洲" aria-label="顯示法國，歐洲">法國</button>
-              <button class="country-chip" type="button" data-country="Spain" data-label="西班牙" data-region="Europe" data-region-label="歐洲" aria-label="顯示西班牙，歐洲">西班牙</button>
+              <button class="country-chip" type="button" data-country="Italy" data-label="意大利" data-region="Europe" data-region-label="歐洲" data-note="歷史、飲食文化與小型商業復甦，塑造了我對本地創業的觀察。" aria-label="顯示意大利，歐洲">意大利</button>
+              <button class="country-chip" type="button" data-country="Switzerland" data-label="瑞士" data-region="Europe" data-region-label="歐洲" data-note="制度、公共秩序與跨境系統，提供了理解社會組織的參照。" aria-label="顯示瑞士，歐洲">瑞士</button>
+              <button class="country-chip" type="button" data-country="Hungary" data-label="匈牙利" data-region="Europe" data-region-label="歐洲" data-note="日常生活、交流經驗與歐洲城市節奏，形成了我的跨文化視角。" aria-label="顯示匈牙利，歐洲">匈牙利</button>
+              <button class="country-chip" type="button" data-country="Austria" data-label="奧地利" data-region="Europe" data-region-label="歐洲" data-note="公共文化、城市形態與歷史延續，讓我重新思考市民生活。" aria-label="顯示奧地利，歐洲">奧地利</button>
+              <button class="country-chip" type="button" data-country="Germany" data-label="德國" data-region="Europe" data-region-label="歐洲" data-note="基建、規劃紀律與社會系統，呈現了效率如何影響日常生活。" aria-label="顯示德國，歐洲">德國</button>
+              <button class="country-chip" type="button" data-country="Romania" data-label="羅馬尼亞" data-region="Europe" data-region-label="歐洲" data-note="後社會主義城市變化與本地社群，提供了另一種理解歐洲發展的角度。" aria-label="顯示羅馬尼亞，歐洲">羅馬尼亞</button>
+              <button class="country-chip" type="button" data-country="Czech Republic" data-label="捷克" data-region="Europe" data-region-label="歐洲" data-note="歷史街道、公共空間與文化記憶，塑造了我對城市身份的理解。" aria-label="顯示捷克，歐洲">捷克</button>
+              <button class="country-chip" type="button" data-country="Poland" data-label="波蘭" data-region="Europe" data-region-label="歐洲" data-note="歷史、韌性與城市更新，提供了理解社會復原與轉變的視角。" aria-label="顯示波蘭，歐洲">波蘭</button>
+              <button class="country-chip" type="button" data-country="Estonia" data-label="愛沙尼亞" data-region="Europe" data-region-label="歐洲" data-note="數碼政府與小國創新，展示了公共系統可以如何被重新設計。" aria-label="顯示愛沙尼亞，歐洲">愛沙尼亞</button>
+              <button class="country-chip" type="button" data-country="Lithuania" data-label="立陶宛" data-region="Europe" data-region-label="歐洲" data-note="波羅的海歷史、公民身份與本地文化，深化了我對歐洲社會的理解。" aria-label="顯示立陶宛，歐洲">立陶宛</button>
+              <button class="country-chip" type="button" data-country="Latvia" data-label="拉脫維亞" data-region="Europe" data-region-label="歐洲" data-note="城市層次、波羅的海文化與日常公共生活，形成了我的區域觀察。" aria-label="顯示拉脫維亞，歐洲">拉脫維亞</button>
+              <button class="country-chip" type="button" data-country="Netherlands" data-label="荷蘭" data-region="Europe" data-region-label="歐洲" data-note="城市規劃、交通、社會福利與日常生活系統，提供了很強的設計參照。" aria-label="顯示荷蘭，歐洲">荷蘭</button>
+              <button class="country-chip" type="button" data-country="France" data-label="法國" data-region="Europe" data-region-label="歐洲" data-note="歷史、藝術、文化與公共生活，塑造了我對社會想像力的理解。" aria-label="顯示法國，歐洲">法國</button>
+              <button class="country-chip" type="button" data-country="Spain" data-label="西班牙" data-region="Europe" data-region-label="歐洲" data-note="巴塞羅那的分區規劃、公共設施與社區基建，啟發了我對城市設計的觀察。" aria-label="顯示西班牙，歐洲">西班牙</button>
             </div>
           </div>
           <div class="country-group" data-region-group="Asia">
             <h3>亞洲</h3>
             <div class="chip-grid">
-              <button class="country-chip" type="button" data-country="Thailand" data-label="泰國" data-region="Asia" data-region-label="亞洲" aria-label="顯示泰國，亞洲">泰國</button>
-              <button class="country-chip" type="button" data-country="Cambodia" data-label="柬埔寨" data-region="Asia" data-region-label="亞洲" aria-label="顯示柬埔寨，亞洲">柬埔寨</button>
-              <button class="country-chip" type="button" data-country="Malaysia" data-label="馬來西亞" data-region="Asia" data-region-label="亞洲" aria-label="顯示馬來西亞，亞洲">馬來西亞</button>
-              <button class="country-chip" type="button" data-country="Japan" data-label="日本" data-region="Asia" data-region-label="亞洲" aria-label="顯示日本，亞洲">日本</button>
-              <button class="country-chip" type="button" data-country="Bangladesh" data-label="孟加拉" data-region="Asia" data-region-label="亞洲" aria-label="顯示孟加拉，亞洲">孟加拉</button>
-              <button class="country-chip" type="button" data-country="China" data-label="中國" data-region="Asia" data-region-label="亞洲" aria-label="顯示中國，亞洲">中國</button>
+              <button class="country-chip" type="button" data-country="Thailand" data-label="泰國" data-region="Asia" data-region-label="亞洲" data-note="市場、日常服務與社區生活，呈現了本地經濟如何回應日常需要。" aria-label="顯示泰國，亞洲">泰國</button>
+              <button class="country-chip" type="button" data-country="Cambodia" data-label="柬埔寨" data-region="Asia" data-region-label="亞洲" data-note="社區教學、本地觀察與社會需要，塑造了我對教育機會的理解。" aria-label="顯示柬埔寨，亞洲">柬埔寨</button>
+              <button class="country-chip" type="button" data-country="Malaysia" data-label="馬來西亞" data-region="Asia" data-region-label="亞洲" data-note="多元文化日常、商場、飲食系統與城市商業，展示了不同社群如何共存。" aria-label="顯示馬來西亞，亞洲">馬來西亞</button>
+              <button class="country-chip" type="button" data-country="Japan" data-label="日本" data-region="Asia" data-region-label="亞洲" data-note="可持續生活、傳統小店、公共秩序與日常設計，塑造了我對細緻城市生活的觀察。" aria-label="顯示日本，亞洲">日本</button>
+              <button class="country-chip" type="button" data-country="Bangladesh" data-label="孟加拉" data-region="Asia" data-region-label="亞洲" data-note="人口密度、發展壓力與社會活力，提供了理解教育與機會的另一種角度。" aria-label="顯示孟加拉，亞洲">孟加拉</button>
+              <button class="country-chip" type="button" data-country="China" data-label="中國" data-region="Asia" data-region-label="亞洲" data-note="本地商業、基建、科技應用與社會變化，形成了我的區域理解。" aria-label="顯示中國，亞洲">中國</button>
             </div>
           </div>
         </div>
@@ -636,17 +567,12 @@
   var fp=document.querySelector('.footprint');
   if(fp){
     var filters=[].slice.call(fp.querySelectorAll('.fp-filter'));
-    var pins=[].slice.call(fp.querySelectorAll('.fp-pin'));
     var chips=[].slice.call(fp.querySelectorAll('.country-chip'));
     var groups=[].slice.call(fp.querySelectorAll('.country-group'));
-    var targets=pins.concat(chips);
-    var tip=fp.querySelector('.fp-tip');
-    var tipCountry=tip?tip.querySelector('strong'):null;
-    var tipRegion=tip?tip.querySelector('span'):null;
     var selectedCountry=fp.querySelector('[data-fp-selected-country]');
     var selectedNote=fp.querySelector('[data-fp-selected-note]');
     function meta(country){
-      var source=pins.concat(chips).filter(function(el){return el.getAttribute('data-country')===country})[0];
+      var source=chips.filter(function(el){return el.getAttribute('data-country')===country})[0];
       return source?{
         country:country,
         label:source.getAttribute('data-label')||country,
@@ -655,28 +581,12 @@
         note:source.getAttribute('data-note')||''
       }:null;
     }
-    function noteFor(country){
-      var source=pins.filter(function(el){return el.getAttribute('data-country')===country})[0];
-      return source?source.getAttribute('data-note'):'';
-    }
-    function setTip(pin,data){
-      if(!tip||!pin||!data)return;
-      var map=fp.querySelector('.fp-map').getBoundingClientRect();
-      var rect=pin.getBoundingClientRect();
-      tip.style.setProperty('--tip-x',(((rect.left-map.left)+(rect.width/2))/map.width*100)+'%');
-      tip.style.setProperty('--tip-y',(((rect.top-map.top)+(rect.height/2))/map.height*100)+'%');
-      tipCountry.textContent=data.label;
-      tipRegion.textContent=data.regionLabel;
-      tip.classList.add('is-visible');
-    }
     function activate(country){
       var data=meta(country);
       if(!data)return;
-      var pin=pins.filter(function(el){return el.getAttribute('data-country')===country})[0];
-      targets.forEach(function(el){el.classList.toggle('is-active',el.getAttribute('data-country')===country)});
+      chips.forEach(function(el){el.classList.toggle('is-active',el.getAttribute('data-country')===country)});
       if(selectedCountry)selectedCountry.textContent=data.label+' · '+data.regionLabel;
-      if(selectedNote)selectedNote.textContent=noteFor(country);
-      if(pin)setTip(pin,data);
+      if(selectedNote)selectedNote.textContent=data.note;
     }
     function applyFilter(region){
       filters.forEach(function(btn){
@@ -684,7 +594,7 @@
         btn.classList.toggle('is-active',on);
         btn.setAttribute('aria-pressed',on?'true':'false');
       });
-      targets.forEach(function(el){
+      chips.forEach(function(el){
         var show=region==='all'||el.getAttribute('data-region')===region;
         el.hidden=!show;
       });
@@ -696,7 +606,7 @@
       if(first)activate(first.getAttribute('data-country'));
     }
     filters.forEach(function(btn){btn.addEventListener('click',function(){applyFilter(btn.getAttribute('data-filter'))})});
-    targets.forEach(function(el){
+    chips.forEach(function(el){
       ['mouseenter','focus','click'].forEach(function(evt){
         el.addEventListener(evt,function(){activate(el.getAttribute('data-country'))});
       });
